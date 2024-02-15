@@ -1,0 +1,11 @@
+.vscode/
+.idea/
+.DS_Store
+
+.env
+.env.*
+
+*.secret
+
+./grafana-storage
+./gcode-files
