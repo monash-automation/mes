@@ -21,6 +21,8 @@ services:
   printing-server:
     build: https://github.com/monash-automation/mes-printing-server.git
     container_name: mes-printing-server
+    ports:
+      - "8000:8000"
     volumes:
       - ./gcode-files:/var/lib/mes/gcode-files
     environment:
