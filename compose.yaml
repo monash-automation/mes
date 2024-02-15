@@ -27,7 +27,7 @@ services:
       - ./gcode-files:/var/lib/mes/gcode-files
     environment:
       - UPLOAD_PATH=/var/lib/mes/gcode-files
-      - DATABASE_URL=postgresql+asyncpg://mes:mes@localhost:5432/mes
+      - DATABASE_URL=postgresql+asyncpg://mes:mes@db:5432/mes
       - OPCUA_SERVER_URL=opc.tcp://opcua-server:4840
       - OPCUA_SERVER_NAMESPACE=http://monashautomation.com/opcua-server
       - MOCK_PRINTER_JOB_TIME=10
