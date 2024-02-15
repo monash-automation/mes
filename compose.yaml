@@ -27,7 +27,7 @@ services:
       - ./gcode-files:/var/lib/mes/gcode-files
     environment:
       - UPLOAD_PATH=/var/lib/mes/gcode-files
-      - DATABASE_URL=sqlite+aiosqlite://
+      - DATABASE_URL=postgresql+asyncpg://mes:mes@localhost:5432/mes
       - OPCUA_SERVER_URL=opc.tcp://opcua-server:4840
       - OPCUA_SERVER_NAMESPACE=http://monashautomation.com/opcua-server
       - MOCK_PRINTER_JOB_TIME=10
@@ -37,6 +37,18 @@ services:
     restart: unless-stopped
     depends_on:
       - opcua-server
+  db:
+    image: postgres:16
+    container_name: mes-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=mes
+      - POSTGRES_PASSWORD=mes
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    shm_size: 128mb
+    restart: unless-stopped
   grafana:
     image: grafana/grafana-oss
     container_name: mes-grafana
