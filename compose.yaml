@@ -1,6 +1,7 @@
 services:
   opcua-server:
     build: https://github.com/monash-automation/mes-opcua-server.git
+    container_name: mes-opcua-server
     ports:
       - "4840:4840"
     environment:
@@ -8,14 +9,18 @@ services:
       - OPCUA_SERVER_NAME="Monash Automation OPC UA Server"
       - OPCUA_SERVER_NAMESPACE=http://monashautomation.com/opcua-server
       - OPCUA_SERVER_REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
     restart: unless-stopped
   redis:
     image: "redis:alpine"
+    container_name: mes-redis
     ports:
       - "6379:6379"
     restart: unless-stopped
   printing-server:
     build: https://github.com/monash-automation/mes-printing-server.git
+    container_name: mes-printing-server
     volumes:
       - ./gcode-files:/var/lib/mes/gcode-files
     environment:
@@ -28,8 +33,11 @@ services:
       - MOCK_PRINTER_TARGET_BED_NOZZLE=60
       - LOGGING_LEVEL=INFO
     restart: unless-stopped
+    depends_on:
+      - opcua-server
   grafana:
     image: grafana/grafana-oss
+    container_name: mes-grafana
     ports:
       - "3000:3000"
     environment:
@@ -37,3 +45,4 @@ services:
       - "GF_INSTALL_PLUGINS=grafana-clock-panel, grafana-simple-json-datasource, redis-datasource"
     volumes:
       - ./grafana-storage:/var/lib/grafana
+    restart: always
