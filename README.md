@@ -30,6 +30,11 @@ sudo docker compose up -d grafana # Dashboard
 ## Update
 
 ```shell
+sudo docker compose down printing-server
+docker container rm -f mes-printing-server
 sudo docker image rm mes-printing-server
+
+sudo docker compose down opcua-server
+docker container rm -f mes-opcua-server
 sudo docker image rm mes-opcua-server
 ```
