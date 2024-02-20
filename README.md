@@ -36,5 +36,8 @@ sudo docker compose up -d printing-server
 
 sudo docker compose down opcua-server
 sudo docker image rm mes-opcua-server
-sudo docker compose up -d opcua-server
 ```
+
+## Dashboard
+
+![dashboard.png](dashboard.png)
