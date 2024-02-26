@@ -52,12 +52,12 @@ services:
   grafana:
     image: grafana/grafana-oss
     container_name: mes-grafana
-    user: MY_USER_ID
     ports:
       - "3000:3000"
     environment:
-      - GF_LOG_LEVEL=debug
-      - "GF_INSTALL_PLUGINS=grafana-clock-panel, grafana-simple-json-datasource, redis-datasource"
+      - GF_LOG_LEVEL=error
+      - GF_PANELS_DISABLE_SANITIZE_HTML=true
+      - "GF_INSTALL_PLUGINS=grafana-clock-panel, grafana-simple-json-datasource, redis-datasource, marcusolsson-dynamictext-panel"
     volumes:
       - ./grafana-storage:/var/lib/grafana
     restart: always
