@@ -52,6 +52,7 @@ services:
   grafana:
     image: grafana/grafana-oss
     container_name: mes-grafana
+    user: MY_USER_ID
     ports:
       - "3000:3000"
     environment:
