@@ -1,33 +1,39 @@
 # Grafana Tamplate
 
-## Plugin
+## Install plugin
 
-install **Dynamic Text** in grafana and use it when add new visualization.
+install `Dynamic Text` in grafana and use it when add new visualization.
 
-![plugin.png](plugin.png)
+![plugin.png](../docs/plugin.png)
 
-## .html file
 
-copy and paste file content in **Content**
 
-![content.png](content.png)
+## Use .html file
 
-## .js file
+copy and paste file content in `Content`
 
-1. select **JavaScript code before content rendering**
+![content.png](../docs/content.png)
 
-![js-before1.png](js-before1.png)
 
-2. copy and paste file content in **JavaScript Before Content Rendering**
 
-![js-before2.png](js-before2.png)
+## Use .js file
 
-## .css file
+1. select `JavaScript code before content rendering` to show the editor
 
-1. select **Styles**
+![js-before1.png](../docs/js-before1.png)
 
-![style1.png](style1.png)
+2. copy and paste file content in `JavaScript Before Content Rendering`
 
-2. copy and paste file content in **CSS Styles**
+![js-before2.png](../docs/js-before2.png)
 
-![style2.png](style2.png)
+
+
+## Use .css file
+
+1. select `Styles` to show the editor
+
+![style1.png](../docs/style1.png)
+
+2. copy and paste file content in `CSS Styles`
+
+![style2.png](../docs/style2.png)
