@@ -1,0 +1,57 @@
+.box {
+    padding: 0 20px 0 20px;
+  }
+  
+  .title {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .type {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  #state {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .ready {
+    color: rgb(67, 174, 67);
+  }
+  
+  .printing {
+    color: rgb(101, 167, 234);
+  }
+  
+  .content {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .content-name {
+    line-height: 18px;
+    font-size: 18px;
+    color: gray;
+    margin-top: 10px;
+  }
+  
+  span {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .text {
+    max-width: 35%;
+    text-wrap: wrap;
+  }
+  
+  .camera {
+    width: 450px;
+    height: 250px;
+    background-color: gray;
+    margin-top: 10px;
+  }

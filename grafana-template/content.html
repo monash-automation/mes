@@ -1,0 +1,36 @@
+<div class="box">
+    <div class="title">
+      <span class="type">{{model}}</span>
+      {{#if (eq state "ready")}}
+      <span id="state" class="ready">Ready</span>
+      {{else}}
+      <span id="state" class="printing">Printing {{progress job_progress}}%</span>
+      {{/if}}
+    </div>
+  
+  
+    <div class="content">
+      <div class="text">
+        {{#if (eq state "ready")}}
+        <div class="content-name">NOZZLE TEMP</div>
+        <span>{{temp nozzle_actual}}℃</span>
+        <div class="content-name">BED TEMP</div>
+        <span>{{temp bed_actual}}℃</span>
+        {{else}}
+        <div class="content-name">NOZZLE TEMP</div>
+        <span style="color: {{nozzleTempColor nozzle_actual}}">{{temp nozzle_actual}}℃</span>
+        <span> → {{temp nozzle_target}}℃</span>
+        <div class="content-name">BED TEMP</div>
+        <span style="color: {{bedTempColor bed_actual}}">{{temp bed_actual}}℃</span>
+        <span> → {{temp bed_target}}℃</span>
+        <div class=" content-name">JOB FILE</div>
+        <span style="font-size: 14px; overflow-wrap: break-word;">{{job_file}}</span>
+        <div class="content-name">ESTIMATED END</div>
+        <span>{{estimateTime job_time_left}}</span>
+        {{/if}}
+      </div>
+      <div class="camera">
+        <img alt="camera" src="{{camera_url}}" />
+      </div>
+    </div>
+  </div>
