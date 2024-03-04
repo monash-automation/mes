@@ -33,10 +33,23 @@ services:
       - MOCK_PRINTER_JOB_TIME=10
       - MOCK_PRINTER_TARGET_BED_TEMPERATURE=50
       - MOCK_PRINTER_TARGET_BED_NOZZLE=60
-      - LOGGING_LEVEL=INFO
+      - LOGGING_LEVEL=ERROR
     restart: unless-stopped
     depends_on:
       - opcua-server
+  printing-service:
+    build: https://github.com/monash-automation/mes-printing-service.git
+    container_name: mes-printing-service
+    ports:
+      - "3001:3000"
+    environment:
+      - VITE_PRINTER_SERVER_URL=http://printing-server:8000
+      - VITE_AUTH0_DOMAIN=dev-qmgetaxjc1xzy0s7.us.auth0.com
+      - VITE_AUTH0_CLIENT_ID=sS0NnS6ieRLLVj1NEKdEkuxfoGmTaaOZ
+      - VITE_AUTH0_AUDIENCE=https://dev-qmgetaxjc1xzy0s7.us.auth0.com/api/v2/
+    restart: unless-stopped
+    depends_on:
+      - printing-server
   db:
     image: postgres:16
     container_name: mes-db
