@@ -41,9 +41,10 @@ services:
     build: https://github.com/monash-automation/mes-printing-service.git
     container_name: mes-printing-service
     ports:
-      - "3001:3000"
+      - "3001:5173"
     environment:
-      - VITE_PRINTER_SERVER_URL=http://printing-server:8000
+      # Must use fixed IP if not using a reverse proxy
+      - VITE_PRINTER_SERVER_URL=http://172.32.1.188:8000
       - VITE_AUTH0_DOMAIN=dev-qmgetaxjc1xzy0s7.us.auth0.com
       - VITE_AUTH0_CLIENT_ID=sS0NnS6ieRLLVj1NEKdEkuxfoGmTaaOZ
       - VITE_AUTH0_AUDIENCE=https://dev-qmgetaxjc1xzy0s7.us.auth0.com/api/v2/
