@@ -30,6 +30,7 @@ services:
       - DATABASE_URL=postgresql+asyncpg://mes:mes@db:5432/mes
       - OPCUA_SERVER_URL=opc.tcp://opcua-server:4840
       - OPCUA_SERVER_NAMESPACE=http://monashautomation.com/opcua-server
+      - AUTO_SCHEDULE=false
       - MOCK_PRINTER_JOB_TIME=10
       - MOCK_PRINTER_TARGET_BED_TEMPERATURE=50
       - MOCK_PRINTER_TARGET_BED_NOZZLE=60
