@@ -44,8 +44,8 @@ services:
     ports:
       - "3001:5173"
     environment:
-      # Must use fixed IP if not using a reverse proxy
-      - VITE_PRINTER_SERVER_URL=http://172.32.1.188:8000
+      # the domain name is from Cloudflare
+      - VITE_PRINTER_SERVER_URL=https://printing.monashautomation.com
       - VITE_AUTH0_DOMAIN=dev-qmgetaxjc1xzy0s7.us.auth0.com
       - VITE_AUTH0_CLIENT_ID=sS0NnS6ieRLLVj1NEKdEkuxfoGmTaaOZ
       - VITE_AUTH0_AUDIENCE=https://dev-qmgetaxjc1xzy0s7.us.auth0.com/api/v2/

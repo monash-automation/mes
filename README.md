@@ -1,5 +1,16 @@
 # Manufacturing Execution System
 
+Printing service is available [here](https://printing.monashautomation.com/)
+
+## Architecture
+
+![Architecture](docs/architecture.png)
+
+- public access: [Cloudflare tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
+- reverse proxy: [Caddy](https://caddyserver.com/docs/getting-started)
+- frontend: [printing service](https://github.com/monash-automation/mes-printing-service)
+- backend: [printing server](https://github.com/monash-automation/mes-printing-server)
+
 ## Run
 
 Grafana may complain about no permission to modify `/var/lib/grafana`, we need to add your user id (`id -u`)
@@ -30,6 +41,10 @@ sudo docker compose up -d grafana # Old version dashboard (Deprecated)
 
 ## Update
 
+Currently, MES is under development and features are still in discussion,
+using Dockerhub for now is meaning less because all versions are snapshot or unstable.
+Dockerhub and CI will be imported after the first version is ready.
+
 ```shell
 sudo docker compose down printing-service
 sudo docker image rm mes-printing-service
@@ -44,6 +59,10 @@ sudo docker image rm mes-opcua-server
 sudo docker compose up -d opcua-server
 ```
 
-## Dashboard
+## Printing Service Dashboard
 
 ![dashboard.png](docs/dashboard.png)
+
+## Resources
+
+[Setup a Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/)
