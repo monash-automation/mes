@@ -13,17 +13,6 @@ Printing service is available [here](https://printing.monashautomation.com/)
 
 ## Run
 
-Grafana may complain about no permission to modify `/var/lib/grafana`, we need to add your user id (`id -u`)
-under grafana service:
-
-Note: `tee` is used because `sed -i` may not work in macOS.
-
-```shell
-user_id=$(id -u) && sed -e "s/MY_USER_ID/\"${user_id}\"/g" compose.yaml | tee compose.yaml
-```
-
-Then run all services:
-
 ```shell
 sudo docker compose up -d
 ```
